@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: illa-builder
+    repository: https://github.com/illacloud/illa-builder
+    branch: main                # or beta / the branch you want
+    buildCommand: pnpm install && pnpm run build-cloud --filter=illa-builder
+    startCommand: npx serve -s apps/illa-builder/dist
+    envVars:
+      - key: NODE_ENV
+        value: production
+    plan: free                # or starter/pro
+    region: singapore         # pick your preferred region
